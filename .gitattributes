@@ -1,5 +1,3 @@
-###############################################################################
-# Set default behavior to automatically normalize line endings.
-###############################################################################
+*.html linguist-detectable=false
 * text=auto
 
