@@ -1,0 +1,210 @@
+---
+---
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}"> -->
+    <!-- <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"> -->
+    <!-- <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}"> -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/css/Icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/css/Icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/css/Icons/favicon-16x16.png">
+    <link rel="manifest" href="/css/Icons/site.webmanifest">
+    <link rel="mask-icon" href="/css/Icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="css\model_selection.css">
+    <link rel="stylesheet" href="css\header.css">
+    <link rel="stylesheet" href="css\footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/6.0.4/esm/ionicons.min.js">
+    <title>Модели</title>
+</head>
+<body>
+  {% include header.html %}
+
+    <div class="main">
+        <div class="left_container">
+          <div class="model_submit">
+            <a href="/submit.html">Добавить модель</a>
+          </div>
+          <div class="left_cell left_cell_1">
+            <h3>Поиск</h3>
+            <div class="search">
+              <input type="search" id="model_search" placeholder="Введите автора">
+            </div>
+          </div>
+          <div class="left_cell left_cell_2">
+            <h3>Патоген</h3>
+            <div class="data_selection">
+              {% for element in site.data.models %}
+                {% for i in element[1] %}
+                  <input type="checkbox" name="{{i.pathogen}}" class="pathogen_checkbox" value="{{i.pathogen}}">
+                  <label for="{{i.pathogen}}">{{i.pathogen}}</label>
+                {% endfor %}
+              {% endfor %}
+            </div>
+          </div>
+          <div class="left_cell left_cell_3">
+            <h3>Тип</h3>
+            <div class="data_selection">
+              {% assign allVariants = [] %}
+              {% for element in site.data.models %}
+                {% for i in element[1] %}
+                  {% for j in i %}
+                    {% if j[0] != "pathogen" %}
+                      {% for type in j[1] %}
+                        {% if allVariants contains type.type %}
+                          {% continue %}
+                        {% endif %}
+                        <input type="checkbox" name="{{type.type}}" class="model_type_checkbox" value="{{type.type}}">
+                        <label for="{{type.type}}">{{type.type}}</label>
+                        {% assign allVariants = allVariants | append: type.type %}
+                      {% endfor %}
+                    {% endif %}
+                  {% endfor %}
+                {% endfor %}
+              {% endfor %}
+            </div>    
+          </div>
+          <div class="left_cell left_cell_4">
+            <h3>Год публикации</h3>
+            <div class="date_input_container">
+              <input type="number" name="publ_year" value="1920" id="date_input_prev" class="date_input" min="1920" max="2023">
+              <span>—</span>
+              <input type="number" name="publ_year" value="2023" id="date_input_next" class="date_input" min="1920" max="2023">
+            </div>
+            <div class="data_selection">
+              <input type="checkbox" class="date_checkbox" name="date_all_time" id="all_date" value="0" checked>
+              <label for="date_all_time">За любое время</label>
+              <input type="checkbox" class="date_checkbox" name="date_2020" value="2020">
+              <label for="date_2020">Начиная с 2020</label>
+              <input type="checkbox" class="date_checkbox" name="date_2010" value="2010">
+              <label for="date_2010">Начиная с 2010</label>
+              <input type="checkbox" class="date_checkbox" name="date_2000" value="2000">
+              <label for="date_2000">Начиная с 2000</label>
+            </div>
+          </div>
+        </div>
+  
+        {% assign data_number = 0 %}
+            {% for element in site.data.models %}
+              {% for test in element[1] %}
+                {% assign pathogen_name = test.pathogen %}
+                  {% for pathogen_element in test %}
+                    {% if pathogen_element[0] != "pathogen"  %}
+                      {% for component in pathogen_element[1] %}
+                        {% assign data_number = data_number | plus: 1 %}
+                      {% endfor %}
+                    {% endif %}
+                  {% endfor %}
+              {% endfor %}
+            {% endfor %}
+        <div class="center_container">
+          <div class="center_cell center_cell_2">
+            <h4>Моделей: <span class="dataElementsNumber">{{ data_number }}</span></h4>
+            <select name="format" id="sort_type">
+              <option value="all_models">По релевантности</option>
+              <option value="pathogen_a_z">Патоген: от A до Z</option>
+              <option value="pathogen_z_a">Патоген: от Z до A</option>
+              <option value="compartments_many">Количество компартментов: по убыванию</option>
+              <option value="compartments_low">Количество компартментов: по возрастанию</option>
+              <option value="species_many">Количество сущностей: по убыванию</option>
+              <option value="species_low">Количество сущностей: по возрастанию</option>
+              <option value="date_old">Дата публикации: сначала старые</option>
+              <option value="date_new">Дата публикации: сначала новые</option>
+            </select>
+          </div>
+          <hr>
+          <div class="center_cell center_cell_1">
+            <div class="buttons_page_size">Количество элементов:
+              <button class="visiblePages active_pages" value="10" onclick="visibleElements.changeActiveButton(this); changeVisibleElementsNumber(this.value); element(pageNumber(), 1)">10</button>
+              <button class="visiblePages" value="20" onclick="visibleElements.changeActiveButton(this); changeVisibleElementsNumber(this.value); element(pageNumber(), 1)">20</button>
+              <button class="visiblePages" value="50" onclick="visibleElements.changeActiveButton(this); changeVisibleElementsNumber(this.value); element(pageNumber(), 1)">50</button>
+              <button class="visiblePages" value="100" onclick="visibleElements.changeActiveButton(this); changeVisibleElementsNumber(this.value); element(pageNumber(), 1)">100</button>
+              <button class="visiblePages" value="200" onclick="visibleElements.changeActiveButton(this); changeVisibleElementsNumber(this.value); element(pageNumber(), 1)">200</button>
+            </div>
+          </div>
+          
+          <div class="center_cell center_cell_3">
+  
+            {% assign test_value = 0 %}
+            {% for element in site.data.models %}
+              {% for test in element[1] %}
+                {% assign pathogen_name = test.pathogen %}
+                  {% for pathogen_element in test %}
+                    {% if pathogen_element[0] != "pathogen"  %}
+                      {% for component in pathogen_element[1] %}
+                        {% assign first_two_authors = component.authors | split: "," | slice: 0, 2 | join: ", " %}
+                        {% assign authors_array = component.authors | split: "," %}
+                        {% if authors_array.size > 2 %}
+                          {% assign first_two_authors = first_two_authors | append: " et al." %}
+                        {% endif %}
+                        <div class="exp_data data">
+                          <h4>
+                            <a class="link_to_data" href="/pages/models/{{component.id}}.html">{{component.article}}</a><br>
+                            <span>Патоген: <span class="pathogen">{{pathogen_name}}</span>&nbsp|&nbsp Тип: <span class="model_type">{{ component.type }}</span>&nbsp|&nbsp Метод: <span class="modeling_approach">{{ component.modelling_approach }}</span> &nbsp|&nbsp Компартментов: <span class="compartments">{{ component.compartments }}</span> &nbsp|&nbsp Сущностей: <span class="species">{{ component.species }}</span> &nbsp|&nbsp Авторы: <span class="authors" id="{{component.id}}">{{ first_two_authors }}</span>&nbsp|&nbsp Дата публикации: <span class="publ_date">{{component.publication_date}}</span> &nbsp|&nbsp ID: <span class="elem_id">{{component.id}}</span>
+                            </span>
+                          </h4>
+                        </div>
+                      {% endfor %}
+                    {% endif %}
+                  {% endfor %}
+              {% endfor %}
+            {% endfor %}
+  
+          </div>
+          <div class="center_cell center_cell_4">
+            <h4>Показано данных: <span id="visibleElems">8</span> из <span id="allFilteredElements">{{ data_number }}</span></h4>
+                  <nav class="page_navigation">
+                      <ul class="pagination">
+                        <li class="page_item"><button id="prev_arrow" class="prev">Предыдущая</button></li>
+                        <li class="page_item active"><button>1</button></li>
+                        <li class="page_item"><button>2</button></li>
+                        <li class="page_item_dots"><button id="dots">...</button></li>
+                        <li class="page_item"><button>4</button></li>
+                        <li class="page_item"><button>5</button></li>
+                        <li class="page_item_dots"><button id="dots">...</button></li>
+                        <li class="page_item"><button>7</button></li>
+                        <li class="page_item next"><button id="next_arrow" class="prev">Следующая</button></li>
+                      </ul>
+                  </nav>
+          </div>
+        </div>
+  
+        <div class="right_container">
+          <div class="right_cell right_cell_1">
+            <h3><a href="https://www.biouml.org" target="_blank">BioUML - платформа для моделирования биологических систем</a> </h3>
+                  <p> 
+                    Особенностями платформы являются визуальное моделирование и модульный подход, в функционал входит 
+                    возможность доступа к различным базам данных, проведения численных расчетов,
+                    подбор параметров и различные типы анализа математических моделей и данных.
+                  </p>
+          </div>
+        </div>
+  
+      </div>
+
+
+    {% include footer.html %}
+    
+    <script src="scripts\JS\modelSelection\Data.js"></script>
+    <script src="scripts\JS\modelSelection\DataCollection.js"></script>
+    <script src="scripts\JS\modelSelection\Checkbox.js"></script>
+    <script src="scripts\JS\modelSelection\CheckboxesCollection.js"></script>
+    <script src="scripts\JS\modelSelection\elementsAndCheckboxesLoad.js"></script>
+    <script src="scripts\JS\modelSelection\VisibleElements.js"></script>
+    <script src="scripts\JS\modelSelection\pageNumber.js"></script>
+    <script src="scripts\JS\modelSelection\pagination.js"></script>
+    <script src="scripts\JS\modelSelection\pageChange.js"></script>
+    <script src="scripts\JS\modelSelection\sorting.js"></script>
+    <script src="scripts\JS\modelSelection\filter.js"></script>
+    <script src="scripts\JS\modelSelection\initialization.js"></script>
+    <script src="scripts\JS\modelSelection\searchEngine.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

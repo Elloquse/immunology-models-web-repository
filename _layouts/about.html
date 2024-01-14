@@ -1,0 +1,110 @@
+---
+---
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/css/Icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/css/Icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/css/Icons/favicon-16x16.png">
+    <link rel="manifest" href="/css/Icons/site.webmanifest">
+    <link rel="mask-icon" href="/css/Icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="/css/about.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/6.0.4/esm/ionicons.min.js">
+
+    <title>О проекте</title>
+</head>
+<body>
+    {% include header.html %}
+    
+    <main class="content">
+        <div class="left overview_left">Общая информация</div>
+        <div class="right overview_right">
+            {{ content }}
+        </div>
+        <div class="left contacts-left">Организаторы</div>
+        <div class="right contacts-right">
+            <div class="contacts contact_1">
+                <img class="organizers_logo" src="css\Images\Akberdin.jpg" width="120px" height="120px" alt="Акбердин И. Р.">
+                <div class="contact_information">
+                    <h3 class="full_name">Акбердин Илья Ринатович</h3>
+                    <h4 class="affiliation">Университет «Сириус», г. Сочи, Россия</h4>
+                    <h4 class="email">akberdinir@gmail.com</h4>
+                </div>
+            </div>
+            <div class="contacts contact_2">
+                <img class="organizers_logo" src="css\Images\Bocharov.jpg" width="120px" height="120px" alt="Бочаров Г. А.">
+                <div class="contact_information">
+                    <h3 class="full_name">Бочаров Геннадий Алексеевич</h3>
+                    <h4 class="affiliation">Институт вычислительной математики им. Г. И. Марчука РАН, г. Москва, Россия</h4>
+                    <h4 class="email">gbocharov@gmail.com</h4>
+                </div>
+            </div>
+            <div class="contacts contact_3">
+                <img class="organizers_logo" src="css\Images\Gaynova.jpg" width="120px" height="120px" alt="Гайнова И. А.">
+                <div class="contact_information">
+                    <h3 class="full_name">Гайнова Ирина Алексеевна</h3>
+                    <h4 class="affiliation">Институт математики им. С. Л. Соболева СО РАН, г. Новосибирск, Россия</h4>
+                    <h4 class="email">gajnova@math.nsc.ru</h4>
+                </div>
+            </div>
+            <div class="contacts contact_4">
+                <img class="organizers_logo" src="css\Images\Kolpakov.jpg" width="120px" height="120px" alt="Колпаков Ф. А.">
+                <div class="contact_information">
+                    <h3 class="full_name">Колпаков Федор Анатольевич</h3>
+                    <h4 class="affiliation">Университет «Сириус», г. Сочи, Россия</h4>
+                    <h4 class="email">fkolpakov@gmail.com</h4>
+                </div>
+            </div>
+        </div>
+        <div class="left partners-left">Партнеры</div>
+        <div class="right partners-right">
+            <div>
+                <a class="partners_logos" href="https://www.inm.ras.ru" target="_blank"><img  src="css\Images\Partners\INM-RAS.jpg" width="150px" height="150px" alt="image"></a> 
+                <h4 class="hidden">Институт вычислительной математики им. Г. И. Марчука Российской академии наук</h4>
+            </div>
+            <div>
+                <a class="partners_logos" href="https://mathcenter.ru" target="_blank"><img  src="css\Images\Partners\MCFM.jpg" width="150px" height="150px" alt="image"></a> 
+                <h4 class="hidden">Отделение Московского центра фундаментальной и прикладной математики в ИВМ РАН</h4>
+            </div>
+            <div>
+                <a class="partners_logos" href="https://www.sechenov.ru" target="_blank"><img  src="css\Images\Partners\Sechenov.jpg" width="150px" height="150px" alt="image"></a> 
+                <h4 class="hidden">Первый Московский государственный медицинский университет им. И.М. Сеченова Министерства здравоохранения России</h4>
+            </div>
+            <div>
+                <a class="partners_logos" href="https://uust.ru" target="_blank"><img  src="css\Images\Partners\UUST.png" width="150px" height="150px" alt="image"></a> 
+                <h4 class="hidden">Уфимский университет науки и технологий</h4>
+            </div>
+            <div>
+                <a class="partners_logos" href="https://www.math.nsc.ru" target="_blank"><img  src="css\Images\Partners\SIM.png" width="150px" height="150px" alt="image"></a> 
+                <h4 class="hidden">Институт математики имени С. Л. Соболева Сибирского отделения Российской академии наук</h4>
+            </div>
+            <div>
+                <a class="partners_logos" href="https://www.iacp.dvo.ru" target="_blank"><img  src="css\Images\Partners\IACP-DVO.jpg" width="150px" height="150px" alt="image"></a> 
+                <h4 class="hidden">Институт автоматики и процессов управления Дальневосточного отделения Российской академии наук</h4>
+            </div>
+            <div>
+                <a class="partners_logos" href="https://icmmg.nsc.ru" target="_blank"><img  src="css\Images\Partners\ICMMG.png" width="150px" height="150px" alt="image"></a> 
+                <h4 class="hidden">Институт вычислительной математики и математической геофизики Сибирского отделения Российской академии наук</h4>
+            </div>
+            <div>
+                <a class="partners_logos" href="https://www.rudn.ru" target="_blank"><img  src="css\Images\Partners\RUDN.jpg" width="150px" height="150px" alt="image"></a> 
+                <h4 class="hidden">ФГАОУ ВО Российский университет дружбы народов</h4>
+            </div>
+        </div>
+
+    </main>
+    
+    
+    {% include footer.html %}
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

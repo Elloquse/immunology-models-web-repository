@@ -1,0 +1,76 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}"> -->
+  <!-- <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"> -->
+  <!-- <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}"> -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/css/Icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/css/Icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/css/Icons/favicon-16x16.png">
+  <link rel="manifest" href="/css/Icons/site.webmanifest">
+  <link rel="mask-icon" href="/css/Icons/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/6.0.4/esm/ionicons.min.js">
+  <title>Mathematical Modeling for Immunology</title>
+</head>
+
+  {% include header.html %}
+
+<body>
+  
+  <main>
+    <div class="left_containers">
+      <div id="news_container">
+        <h3><a href="/feed.html">Новости</a></h3>
+        <div>
+          <ul>
+            {% for post in site.posts limit:3 %}
+              <li><a href="{{ post.url }}">{{ post.title }}</a> <br><span class="authors_statistics">{{ post.date | date: '%B %d, %Y' }} </span></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div id="last_updates_container">
+        <h3>Последние публикации</h3>
+        <div>
+          <ul>
+            {% for element in site.data.last_updates %}
+              <li><a href="{{element[1].link}}">{{element[1].publication}}</a> <br><span class="authors_statistics">{{element[1].authors}} | {{element[1].date}} | {{element[1].id}} </span></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="right_containers">
+      <h2>Настоящий веб-ресурс является платформой для накопления и систематизации:</h2>
+      <div class="right_grid">
+        <div class="left_titles">Экспериментальных данных</div>
+        <div class="right_text">Оцифрованных экспериментальных (количественных и качественных) данных по размножению патогенов в организме человека и соответствующим динамическим характеристикам врожденного и адаптивного иммунитетов.</div>
+        <div class="left_titles">Математических моделей</div>
+        <div class="right_text"> Разработанных и независимо воспроизведенных с помощью Jupyter Notebooks математических моделей иммунологических процессов для различных патогенов и различного уровня сложности.</div>
+      </div>
+    </div>
+  </main>
+
+
+  {% include footer.html %}
+
+<!-- Ionicons scripts -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+
+

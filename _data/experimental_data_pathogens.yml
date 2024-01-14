@@ -1,0 +1,131 @@
+sars-cov-2:
+  - pathogen: SARS-CoV-2
+    DP00001:
+      - id: DP00001
+        article: Persistence and decay of human antibody responses to the receptor binding domain of SARS-CoV-2 spike protein in COVID-19 patients
+        authors: Iyer A. S., Jones F. K., Nodoushani A., Kelly M., Becker M., Slater D., Mills R., Teng E., Kamruzzaman M., Garcia-Beltran W. F., Astudillo M., Yang D., Miller T. E., Olivera E., Fischinger S., Atyeo C., Iafrate A. J., Calderwood S. B., Lauer S. A., Yu J., Li Z., Feldman J., Hauser B. M., Caradonna T. M., Branda J. A., Turbett S. E., LaRocque R. C., Mellon G., Barouch D. H., Schmidt A. G., Azman A. S., Alter G., Ryan E. T., Harris J. B., Charles R. C.
+        doi: 10.1126/sciimmunol.abe0367
+        doi_link: https://www.science.org/doi/10.1126/sciimmunol.abe0367
+        publication_date: 08.10.20
+        data_types:
+          - dynamics: Динамика
+        data:
+          - IgG: IgG
+            IgA: IgA
+            IgM: IgM
+    DP00002:
+      - id: DP00002
+        article: The dynamics of immune response in COVID‐19 patients with different illness severity
+        authors: Zhang В., Yue D., Wang Y., Wang F., Wu S., Hou H.
+        doi: 10.1002/jmv.26504
+        doi_link: https://onlinelibrary.wiley.com/doi/10.1002/jmv.26504
+        publication_date: 10.09.20
+        data_types:
+          - dynamics: Динамика
+        data:
+          - b-cells: В-клетки
+            cd4_cells: CD4+ Т-клетки
+            cd8_cells: CD8+ Т-клетки
+    DP00003:
+      - id: DP00003
+        article: Longitudinal characteristics of lymphocyte responses and cytokine profiles in the peripheral blood of SARS-CoV-2 infected patients
+        authors: Liu J., Li S., Liu J., Liang B., Wang X., Wang H., Li W., Tong Q., Yi J., Zhao L., Xiong L., Guo C., Tian J., Luo J., Yao J., Pang R., Shen H., Peng C., Liu T., Zhang Q., Wu J., Xu L., Lu S., Wang B., Weng Z., Han C., Zhu H., Zhou R., Zhou H., Chen X., Ye P., Zhu B., Wang L., Zhou W., He S., He Y., Jie S., Wei P., Zhang J., Lu Y., Wang W., Zhang L., Li L., Zhou F., Wang J., Dittmer U., Lu M., Hu Y., Yang D., Zheng X.
+        doi: 10.1016/j.ebiom.2020.102763
+        doi_link: https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(20)30138-9/fulltext
+        publication_date: 29.04.20
+        data_types:
+          - dynamics: Динамика
+        data:
+          - il_4: IL-4
+            il_10: IL-10
+            ifn_g: IFNγ
+    DP00004:
+      - id: DP00004
+        article: Longitudinal analyses reveal immunological misfiring in severe COVID-19
+        authors: Lucas C., Wong P., Klein J., Castro T. B. R., Silva J., Sundaram M., Ellingson M. K., Mao T., Oh J. E., Israelow B., Takahashi T., Tokuyama M., Lu P., Venkataraman A., Park A., Mohanty S., Wang H., Wyllie A. L., Vogels C. B. F., Earnest R., Lapidus S., Ott I. M., Moore A. J., Muenker M. C., Fournier J. B., Campbell M., Odio C. D., Casanovas-Massana A., Herbst R., Shaw A. C., Medzhitov R., Schulz W. L., Grubaugh N. D., Cruz C. D., Farhadian S., Ko A. I., Omer S. B., Iwasaki A.
+        doi: 10.1038/s41586-020-2588-y
+        doi_link: https://www.nature.com/articles/s41586-020-2588-y
+        publication_date: 27.07.20
+        data_types:
+          - dynamics: Динамика
+        data:
+          - il_4: IL-4
+            il_6: IL-6
+            ifn_g: IFNγ
+            ifn_a: IFNα
+            ifn_l: IFNλ
+    DP00005:
+      - id: DP00005
+        article: Virological assessment of hospitalized patients with COVID-2019
+        authors: Wölfel R., Corman V. M., Guggemos W., Seilmaier M., Zange S., Müller M. A., Niemeyer D., Jones T. C, Vollmar P., Rothe C., Hoelscher M., Bleicker T., Brünink S., Schneider J., Ehmann R., Zwirglmaier K., Drosten K., Wendtner C.
+        doi: 10.1038/s41586-020-2196-x
+        doi_link: https://www.nature.com/articles/s41586-020-2196-x
+        publication_date: 01.04.20
+        data_types:
+          - dynamics: Динамика
+        data:
+          - viral_load_sputum: Вирусная нагрузка (бронхи)
+    DP00006:
+      - id: DP00006
+        article: Safety, tolerability and viral kinetics during SARS-CoV-2 human challenge in young adults
+        authors: Killingley B., Mann A. J., Kalinova M., Boyers A., Goonawardane N., Zhou J., Lindsell K., Hare S. S., Brown J., Frise R., Smith E., Hopkins C., Noulin N., Löndt B., Wilkinson T., Harden S., McShane H., Baillet M., Gilbert A., Jacobs M., Charman C., Mande P., Nguyen-Van-Tam J. S., Semple M. G., Read R. C., Ferguson N. M., Catchpole A. P., Chiu C., Openshaw P. J., Rapeport G., Barclay W. S.
+        doi: 10.1038/s41591-022-01780-9
+        doi_link: https://www.nature.com/articles/s41591-022-01780-9
+        publication_date: 31.03.22
+        data_types:
+          - dynamics: Динамика
+        data:
+          - viral_load_nose: Вирусная нагрузка (носоглотка) 
+    DP00007:
+      - id: DP00007
+        article: SARS-CoV-2 Viral Load in Upper Respiratory Specimens of Infected Patients
+        authors: Zou L., Ruan F., Huang M., Liang L., Huang H., Hong Z., Yu J., Kang M., Song Y., Xia J., Guo Q., Song T., He J., Yen H.-L., Peiris M., Wu J.
+        doi: 10.1056/NEJMc2001737
+        doi_link: https://www.nejm.org/doi/10.1056/nejmc2001737
+        publication_date: 19.03.20
+        data_types:
+          - dynamics: Динамика
+        data:
+          - viral_load_nose: Вирусная нагрузка (носовая полость)
+            viral_load_throat: Вирусная нагрузка (глотка)
+    DP00008:
+      - id: DP00008
+        article: Epidemiologic Features and Clinical Course of Patients Infected With SARS-CoV-2 in Singapore
+        authors: Young B. E., Ong S. W. X., Kalimuddin S., Low J. G., Tan S. Y., Loh J., Ng O.-T., Marimuthu K., Ang L. W., Mak T. M., Lau S. K., Anderson D. E., Chan K. S., Tan T. Y., Ng T. Y., Cui L., Said Z., Kurupatham L., Chen M. I-C., Chan M., Vasoo S., Wang L.-F., Tan B. H., Lin R. T. P., Lee V. J. M., Leo Y.-S., Lye D. C.
+        doi: 10.1001/jama.2020.3204
+        doi_link: https://jamanetwork.com/journals/jama/fullarticle/2762688?utm_campaign=articlePDF&utm_medium=articlePDFlink&utm_source=articlePDF&utm_content=jama.2020.3204
+        publication_date: 03.03.20
+        data_types:
+          - dynamics: Динамика
+        data:
+          - viral_load_nose: Вирусная нагрузка (носоглотка)
+    DP00009:
+      - id: DP00009
+        article: Clinical Course and Outcomes of Patients with Severe Acute Respiratory Syndrome Coronavirus 2 Infection, a Preliminary Report of the First 28 Patients from the Korean Cohort Study on COVID-19
+        authors: Kim E. S., Chin B. S., Kang C. K., Kim N. J., Kang Y. M., Choi J.-P., Oh D. H., Kim J.-H., Koh B., Kim S. E., Yun N. R., Lee J.-H., Kim J. Y., Kim Y., Bang J. H., Song K.-H., Kim H. B., Chung K., Oh M.
+        doi: 10.3346/jkms.2020.35.e142
+        doi_link: https://jkms.org/DOIx.php?id=10.3346/jkms.2020.35.e142
+        publication_date: 01.04.20
+        data_types:
+          - dynamics: Динамика
+        data:
+          - viral_load_lower_resp_tr: Вирусная нагрузка (нижние дыхательные пути)
+            viral_load_upper_resp_tr: Вирусная нагрузка (верхние дыхательные пути)
+    DP00010:
+      - id: DP00010
+        article: Incubation Period and Other Epidemiological Characteristics of 2019 Novel Coronavirus Infections with Right Truncation, A Statistical Analysis of Publicly Available Case Data
+        authors: Linton N. M., Kobayashi T., Yang Y., Hayashi K., Akhmetzhanov A. R., Jung S., Yuan B., Kinoshita R., Hishiura H.
+        doi: 10.3390/jcm9020538
+        doi_link: https://www.mdpi.com/2077-0383/9/2/538
+        publication_date: 17.02.20
+        data_types:
+          - incubation_period: Инкубационный период
+    DP00011:
+      - id: DP00011
+        article: Incubation period of 2019 novel coronavirus (2019-nCoV) infections among travellers from Wuhan, China, 20–28 January 2020
+        authors: Backer J. A., Klinkenberg D., Wallinga J.
+        doi: 10.2807/1560-7917.ES.2020.25.5.2000062
+        doi_link: https://www.eurosurveillance.org/content/10.2807/1560-7917.ES.2020.25.5.2000062
+        publication_date: 06.02.20
+        data_types:
+          - incubation_period: Инкубационный период

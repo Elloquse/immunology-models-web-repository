@@ -1,0 +1,100 @@
+---
+---
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/css/Icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/css/Icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/css/Icons/favicon-16x16.png">
+    <link rel="manifest" href="/css/Icons/site.webmanifest">
+    <link rel="mask-icon" href="/css/Icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="/css/model.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/6.0.4/esm/ionicons.min.js">
+
+    {% assign pathogen = page.pathogen %}
+    {% assign data_id = page.data_id %}
+    {% for data_element in site.data.models.[pathogen] %} 
+          {% if data_element.[data_id] %}
+              {% for category in data_element.[data_id] %} 
+                  {% assign title = data_element.pathogen %}
+                  {% assign pathogen_id = category.id %}
+                  {% assign pathogen_article = category.article %}
+                  {% assign pathogen_authors = category.authors %}
+                  {% assign pathogen_doi = category.doi %}
+                  {% assign pathogen_doi_link = category.doi_link %}
+                  {% assign jupyter = category.jupyter %}
+                  {% assign modules = category.modules %}
+                  {% assign compartments = category.compartments %}
+                  {% assign species = category.species %}
+                  {% assign reactions = category.reactions %}
+                  {% assign equations = category.equations %}
+                  {% assign parameters = category.parameters %}
+              {% endfor %}
+          {% endif %}
+      {% endfor %}
+    <title>Модель - {{ title }} - {{ pathogen_id }}</title>
+</head>
+<body>
+    {% include header.html %}
+
+    <main class="pathogen_type model_container">
+        <div class="pathogen_type_name">
+            <div class="table_title">Патоген</div>
+            <div class="pathogen_name_2">{{ title }}</div>
+            <div class="table_title">Статья</div>
+            <div class="pathogen_name_4">{{ pathogen_article }}</div>
+            <div class="table_title">Авторы</div>
+            <div class="pathogen_name_6"></div>
+            <div class="table_title">DOI</div>
+            <div class="data_id_2"><a href="{{ pathogen_doi_link }}" target="_blank" class="doi_link">{{ pathogen_doi }}</a></div>
+            <div class="table_title">ID</div>
+            <div class="data_id_2">{{ pathogen_id }}</div>
+            <div class="table_title">Описание</div>
+            <div class="model_description">{{ content }}</div>
+            <div class="table_title">Jupyter Notebook</div>
+            <div class="data_id_2"><a href="{{jupyter}}" target="_blank" class="doi_link">Открыть</a></div>
+            <div class="table_title">Загрузить</div>
+            <div class="model_description"><a href="https://gitlab.sirius-web.org/immunology/immunology.pages.sirius-web.org/-/raw/master/models/{{pathogen_id}}/{{pathogen_id}}.zip?inline=false">SBML</a></div>
+        </div>
+        <div class="model_characteristics">
+            <div class="table_title">Модулей</div>
+            <div class="table_title">Компартментов</div>
+            <div class="table_title">Сущностей</div>            
+            <div class="table_title">Реакций</div>
+            <div class="table_title">Уравнений</div>
+            <div class="table_title">Параметров</div>
+            <div class="table_title_2">{{ modules }}</div>
+            <div class="table_title 2">{{ compartments }}</div>   
+            <div class="table_title 2">{{ species }}</div> 
+            <div class="table_title 2">{{ reactions }}</div>            
+            <div class="table_title 2">{{ equations }}</div> 
+            <div class="table_title 2">{{ parameters }}</div> 
+        </div>
+        <script>
+            showFirstTwoAuthors ('{{pathogen_authors}}')
+            function showFirstTwoAuthors (authors) {
+              let authorsArray = authors.split(',')
+              let finalArray = authorsArray.slice(0, 2).join(',');
+              if (authorsArray.slice(0, 2).length < authorsArray.length) {
+                document.querySelector('.pathogen_name_6').innerHTML = finalArray + ' et al.'
+              } else {
+                document.querySelector('.pathogen_name_6').innerHTML = finalArray;
+              }
+            }
+          </script>       
+
+    </main>
+    
+    {% include footer.html %}
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+---
+---
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/css/Icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/css/Icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/css/Icons/favicon-16x16.png">
+    <link rel="manifest" href="/css/Icons/site.webmanifest">
+    <link rel="mask-icon" href="/css/Icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="/css/submit.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/6.0.4/esm/ionicons.min.js">
+
+    <title>Отправить заявку</title>
+</head>
+<body>
+    {% include header.html %}
+
+    <main>
+        <div class="progress_bar">
+            <div class="progress_line"></div>
+            <ul id="progress_steps">
+                <li class="step active_step"><ion-icon class="progress_bar_icons" name="attach-outline"></ion-icon></li>
+                <li class="step"><ion-icon class="progress_bar_icons" name="information-outline"></ion-icon></li>
+                <li class="step"><ion-icon class="progress_bar_icons" name="reader-outline"></ion-icon></li>
+                <li class="step"><ion-icon class="progress_bar_icons" name="checkmark-outline"></ion-icon></li>
+            </ul>
+        </div>
+
+        <form
+	        action="https://formie.io/form/836bee11-eb7f-445c-8c92-859316e257bd"
+	        method="POST"
+	        enctype="multipart/form-data"
+        >
+            <div class="card active" data-step="0">
+                <h3 class="step_title">Загрузите файлы модели</h3>
+                <div class="form_group dropzone">
+                    <div class="icon_container">
+                        <ion-icon id="upload_icon" name="cloud-upload-outline"></ion-icon>
+                    </div>
+                    <p>или <button type="button" onclick="document.querySelector('#file_input').click()" id="input_button">выберете файл</button> на вашем компьютере.</p>
+                </div>
+                <p id="input_contraints">
+                    <span>Максимум файлов: <strong>1</strong></span>
+                    <span>Допустимые форматы: <strong>RAR, ZIP, TAG</strong> </span>
+                    <span>Максимальный размер файла: <strong>20 МБ</strong></span>
+                </p>
+                <input id="file_input" type="file" name="model_file">
+                <button id="drop_button" type="button" data-next>Далее</button>
+            </div>
+            <div class="card" data-step="1">
+                <h3 class="step_title">Добавьте описание модели</h3>
+                <div class="form_group">
+                    <label for="model_title">Название</label>
+                    <input type="text" name="model_title" id="model_title" autocomplete="off" placeholder="Например: Модель иммунного ответа на заражение вирусом гриппа">
+                </div>
+                <div class="form_group">
+                    <label for="model_description">Описание</label>
+                    <textarea name="model_description" id="model_description" cols="83" rows="10" placeholder="Например: Какие методы были использовании при моделировании, какие результаты получены с применением данной модели"></textarea>
+                    <div id="model_text_button_container">
+                        <button id="model_text_button" type="button" onclick="document.querySelector('#description_file_input').click()">Загрузить документ</button>
+                    </div>
+                    <input name="description_file" id="description_file_input" type="file" hidden>
+                </div>
+                <div class="form_group">
+                    <label id="format_label" for="model_format">Формат</label>
+                    <input type="text" name="model_format" id="model_format" autocomplete="off" placeholder="Например: SBML L3V2">
+                </div>
+                <div class="form_group">
+                    <label for="model_approach">Используемый метод</label>
+                    <input type="text" name="model_approach" id="model_approach" autocomplete="off" placeholder="Например: Обыкновенные дифференциальные уравнения">
+                </div>
+                <div class="nav_buttons">
+                    <button id="section_2_next_button" type="button" data-next>Далее</button>
+                    <button id="section_2_prev_button" type="button" data-previous>Назад</button>
+                </div>
+            </div>
+            <div class="card" data-step="2">
+                <h3 class="step_title">Добавьте информацию по публикации</h3>
+                <div class="form_group">
+                    <label for="secondName">Ссылка на публикацию [при наличии]</label>
+                    <input type="text" name="publication_file_text" id="publication_file_text" autocomplete="off" placeholder="10.1002/jmv.25866">
+                    <div id="publication_button_container">
+                        <button id="publication_button" type="button" onclick="document.querySelector('#publication_file_input').click()">Загрузить документ</button>
+                    </div>
+                    <input name="publication_file" id="publication_file_input" type="file" hidden>
+                </div>
+                <div class="nav_buttons">
+                    <button id="section_2_next_button" type="button" data-next>Далее</button>
+                    <button id="section_2_prev_button" type="button" data-previous>Назад</button>
+                </div>
+            </div>
+            <div class="card" data-step="3">
+                <h3 class="step_title">Введите данные для связи</h3>
+                <div class="form_group">
+                    <label for="name">Имя</label>
+                    <input type="text" name="name" id="name" autocomplete="off">
+                </div>
+                <div class="form_group">
+                    <label for="lastName">Фамилия</label>
+                    <input type="text" name="lastName" id="lastName" autocomplete="off">
+                </div>
+                <div class="form_group">
+                    <label for="email">Почтовый адрес</label>
+                    <input type="email" name="email" id="email" autocomplete="off">
+                </div>
+
+                <div class="nav_buttons submit_button">
+                    <button id="submit_button" type="submit">Отправить</button>
+                    <button id="section_2_prev_button" type="button" data-previous>Назад</button>
+                </div>
+                <input name="_redirect" type="hidden" value="https://immunology.pages.sirius-web.org">
+            </div>
+         </form>
+    </main>
+     
+
+    {% include footer.html %}
+    <script src="scripts\JS\submitPage\submitForm.js"></script>
+    <script src="scripts\JS\submitPage\filesDownload.js"></script>
+    <script src="scripts\JS\submitPage\progressBar.js"></script>
+    <!-- Ionicons scripts -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

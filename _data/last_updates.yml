@@ -1,0 +1,23 @@
+third:
+  publication: Simulation and Prediction of the Adaptive Immune Response to Influenza A Virus Infection
+  id: M00008
+  authors: Lee H. Y., Topham D. J.
+  date: 15.07.09
+  link: pages\models\M00008.html
+second:
+  publication: The human immune response to Mycobacterium tuberculosis in lung and lymph node
+  id: M00007
+  authors: Marino S., Kirscher D. E.
+  date: 21.04.04
+  link: pages\models\M00007.html
+first:
+  publication: Multicompartmental Mathematical Model of SARS-CoV-2 Distribution in Human Organs and Their Treatment
+  id: M00006
+  authors: Afonyushkin V. N., Akberdin I. R.
+  date: 04.06.22
+  link: pages\models\M00006.html
+
+
+
+
+  

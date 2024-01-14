@@ -1,0 +1,41 @@
+.model_container {
+    margin: 4% 3%;
+}
+
+.pathogen_type_name {
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    row-gap: 0.5em;
+    column-gap: 0.3em;
+}
+
+
+.table_title, .table_title_2 {
+    font-size: 0.8em;
+}
+
+.pathogen_name_2 {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.doi_link:hover {
+    text-decoration: underline;
+}
+
+
+.model_description>p {
+    margin-bottom: 14px;
+}
+
+.model_characteristics {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr 1fr;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.model_description>a:hover {
+    text-decoration: underline;
+}

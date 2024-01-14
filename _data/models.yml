@@ -1,0 +1,125 @@
+sars-cov-2:
+  - pathogen: SARS-CoV-2
+    M00001:
+      - id: M00001
+        article: Mathematical modeling of interaction between innate and adaptive immune responses in COVID‐19 and implications for viral pathogenesis
+        authors: Du S. Q., Yuan W.
+        doi: 10.1002/jmv.25866
+        doi_link: https://onlinelibrary.wiley.com/doi/10.1002/jmv.25866
+        publication_date: 26.03.20
+        format: SBML
+        jupyter: https://ict.biouml.org/bioumlweb/anonde/data/Collaboration/Covid-19/Data/Virus Replication/Du Yuan 2020/Simulation_results_Du_Yuan_2020.ipynb
+        modelling_approach: ОДЕ
+        type: Патоген-хозяин
+        modules: 0
+        compartments: 1
+        species: 6
+        reactions: 6
+        equations: 14
+        parameters: 33
+    M00002:
+      - id: M00002
+        article: In-host Mathematical Modelling of COVID-19 in Humans
+        authors: Hernandez-Vargas E. A., Velasco-Hernandez J. X.
+        doi: 10.1016/j.arcontrol.2020.09.006
+        doi_link: https://www.sciencedirect.com/science/article/pii/S1367578820300638?via%3Dihub
+        publication_date: 27.09.20
+        format: SBML
+        jupyter: https://ict.biouml.org/bioumlweb/anonde/data/Collaboration/Covid-19/Data/Virus Replication/Hernandez-Vargas and Velasco-Hernandez 2020/Simulation_results_Hernandez-Vargas_Velasco-Hernandez_2020.ipynb
+        modelling_approach: ОДЕ
+        type: Патоген-хозяин
+        modules: 0
+        compartments: 1
+        species: 2
+        reactions: 6
+        equations: 9
+        parameters: 16
+    M00003:
+      - id: M00003
+        article: A quantitative model used to compare withinhost SARS-CoV-2, MERS-CoV, and SARS-CoV dynamics provides insights into the pathogenesis and treatment of SARS-CoV-2
+        authors: Kim K. S., Ejima K., Iwanami S., Fujita Y., Ohashi H., Koizumi Y., Asai Y., Nakaoka S., Watashi K., Aihara K., Thompson R. N., Ke R., Perelson A. S., Iwami S.
+        doi: 10.1371/journal.pbio.3001128
+        doi_link: https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3001128
+        publication_date: 22.03.21
+        format: SBML
+        jupyter: https://sirius-web.org/bioumlweb/anonde/data/Collaboration (git)/Covid-19/Data/Virus Replication/Kim etal 2021/Simulations_Kim_etal_2021_update plot.ipynb
+        modelling_approach: ОДЕ
+        type: Патоген-хозяин
+        modules: 0
+        compartments: 1
+        species: 2
+        reactions: 3
+        equations: 12
+        parameters: 18
+    M00004:
+      - id: M00004
+        article: The within-host viral kinetics of SARS-CoV-2
+        authors: Li C., Xu J., Liu J., Zhou Y.
+        doi: 10.3934/mbe.2020159
+        doi_link: http://www.aimspress.com/article/doi/10.3934/mbe.2020159
+        publication_date: 26.03.20
+        format: SBML
+        jupyter: https://ict.biouml.org/bioumlweb/anonde/data/Collaboration/Covid-19/Data/Virus Replication/Chentong etal 2020/Simulation_results_Li_etal_2020.ipynb
+        modelling_approach: ОДЕ
+        type: Патоген-хозяин
+        modules: 0
+        compartments: 1
+        species: 3
+        reactions: 6
+        equations: 7
+        parameters: 10
+    M00005:
+      - id: M00005
+        article: Multicompartmental Mathematical Model of SARS-CoV-2 Distribution in Human Organs and Their Treatment
+        authors: Afonyushkin V. N., Akberdin I. R., Kozlova Y. N., Schukin I. A., Mironova T. E., Bobikova A. S., Cherepushkina V. S., Donchenko N. A., Poletaeva Y. E., Kolpakov F. A.
+        doi: 10.3390/math10111925
+        doi_link: https://www.mdpi.com/2227-7390/10/11/1925
+        publication_date: 04.06.22
+        format: SBML
+        jupyter: https://sirius-web.org/bioumlweb/anonde/data/Collaboration (git)/Virus distribution_human organs/Data/Model/Simulation results.ipynb
+        modelling_approach: ОДЕ
+        type: Патоген-хозяин
+        modules: 5
+        compartments: 3
+        species: 6
+        reactions: 15
+        equations: 34
+        parameters: 41
+mycobacterium tuberculosis:
+  - pathogen: Mycobacterium tuberculosis
+    M00006:
+      - id: M00006
+        article: The human immune response to Mycobacterium tuberculosis in lung and lymph node
+        authors: Marino S., Kirscher D. E.
+        doi: 10.1016/j.jtbi.2003.11.023
+        doi_link: https://www.sciencedirect.com/science/article/abs/pii/S0022519303004429?via%3Dihub
+        publication_date: 21.04.04
+        format: SBML
+        jupyter: https://sirius-web.org/bioumlweb/anonde/data/Collaboration (git)/Modular immune system/Data/Marino_Kirschner_model/MK_model_info.ipynb
+        modelling_approach: ОДЕ
+        type: Патоген-хозяин
+        modules: 2
+        compartments: 2
+        species: 18
+        reactions: 44
+        equations: 35
+        parameters: 97
+influenza a virus:
+  - pathogen: Influenza A virus
+    M00007:
+      - id: M00007
+        article: Simulation and Prediction of the Adaptive Immune Response to Influenza A Virus Infection
+        authors: Lee H. Y., Topham D. J., Park  S. Y., Hollenbaugh J., Treanor J., Mosmann T. R., Jin X., Ward B. M., Miao H., Holden-Wiltse J., Perelson A. S., Zand M., Wu H.
+        doi: 10.1128/JVI.00098-09
+        doi_link: https://journals.asm.org/doi/10.1128/JVI.00098-09
+        publication_date: 15.07.09
+        format: SBML
+        jupyter: https://sirius-web.org/bioumlweb/anonde/data/Collaboration (git)/Modular immune system/Data/Lee_model/Lee_model_info.ipynb
+        modelling_approach: ОДЕ
+        type: Патоген-хозяин
+        modules: 2
+        compartments: 2
+        species: 16
+        reactions: 33
+        equations: 38
+        parameters: 73

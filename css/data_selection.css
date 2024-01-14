@@ -1,0 +1,238 @@
+
+/* Body style */
+
+
+.main {
+    display: grid;
+    grid-template-columns: 2fr 6fr 2fr;
+}
+
+
+.exp_data {
+    height: auto;
+    text-align: center;
+    border: 1px solid #6ccfcf;
+    border-radius: 2px;
+}
+
+.center_cell_3 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.data {
+    padding: 7px 20px;
+}
+
+.data > h4 {
+    text-align: left;
+    top: 50%;
+    float: left;
+    font-weight: normal;
+}
+
+.data > h4 > span {
+    margin-top: 5px;
+    float: left;
+    font-size: 0.8em;
+}
+
+.link_to_data:hover {
+    text-decoration: underline;
+}
+
+.main {
+    margin: 1em 1em;
+}
+
+.center_cell_1 {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    height: 10px;
+}
+
+.center_cell_2 {
+    display: flex;
+    align-items: center;
+    font-size: 1.3em;
+    height: 35px;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.center_cell_2 > h4 {
+    font-weight: normal;
+}
+
+#format {
+    font-size: 0.6em;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.buttons_page_size {
+    font-size: 0.75em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.buttons_page_size > button {
+    border: transparent;
+    background-color: transparent;
+    font-size: inherit;
+}
+
+.center_container > hr {
+    margin: 7px 0;
+    background-color: hwb(225 68% 30%);
+    border: none;
+    height: 1px;
+}
+
+.left_container {
+    margin-right: 1em;
+    margin-top: 3em;
+}
+
+
+.right_container {
+    margin-left: 1em;
+    margin-top: 3em;
+}
+
+.data_selection {
+    display: grid;
+    grid-template-columns: 14px 3fr;
+    grid-auto-rows: minmax(min-content, max-content);
+    height: min-content;
+    max-height: 120px;
+    row-gap: 5px;
+    column-gap: 5px;
+    margin-top: 5px;
+    padding: 5px 10px;
+    overflow-y: auto;
+    font-size: 0.8em;
+    border: 1px solid rgb(152, 151, 151);
+    border-radius: 5px;
+}
+
+.date_input {
+    width: 45%;
+    height: 17px;
+    text-align: center;
+    margin-top: 4px;
+    font-size: 0.8em;
+    border: 1px solid rgb(152, 151, 151);
+    border-radius: 5px;
+}
+
+.date_input_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.date_input_container>span {
+    display: block;
+    padding-top: 3px;
+}
+
+
+
+input {
+    width: 12px;
+    height: 12px;
+}
+
+.left_cell_1 > h3 {
+    margin-left: 5px;
+}
+
+.pathogen_selection > label {
+    text-decoration: underline;
+}
+
+.left_container h3 {
+    font-size: 1.1em; 
+}
+
+.left_cell_2, .left_cell_3, .left_cell_4 h3 {
+    margin-top: 22px;
+}
+
+.center_cell_4 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 0.9em;
+}
+
+
+.right_container h3 {
+    font-size: 0.95em; 
+}
+
+.right_cell_2, .right_cell_3 > h3 {
+    margin-top: 22px;
+}
+
+.right_container p {
+    margin-top: 5px;
+    font-size: 0.85em;
+}
+
+.center_cell_4 h4 {
+    font-weight: normal;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: center;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.pagination button {
+    border: transparent;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.page_item {
+    font-size: 0.85em;
+    line-height: 24px;
+    min-width: 18px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.page_item.active,
+.page_item:hover {
+    background: rgb(195, 238, 255);
+}
+
+.prev, .next {
+    width: 94px;
+}
+
+#dots {
+    cursor: default;
+}
+
+.active_pages,
+.active_pages:hover {
+    text-decoration: underline;
+}
+
+.visiblePages {
+    cursor: pointer;
+}

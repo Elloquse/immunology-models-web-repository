@@ -1,0 +1,184 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=`, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/css/Icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/css/Icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/css/Icons/favicon-16x16.png">
+    <link rel="manifest" href="/css/Icons/site.webmanifest">
+    <link rel="mask-icon" href="/css/Icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="/css/pathogen.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/6.0.4/esm/ionicons.min.js">
+  {% assign pathogen = page.pathogen %}
+  {% assign data_id = page.data_id %}
+  {% assign annotation = page.annotation %}
+  {% for data_element in site.data.experimental_data_pathogens.[pathogen] %} 
+        {% if data_element.[data_id] %}
+            {% for category in data_element.[data_id] %} 
+                {% assign title = data_element.pathogen %}
+                {% assign pathogen_id = category.id %}
+                {% assign pathogen_article = category.article %}
+                {% assign pathogen_authors = category.authors %}
+                {% assign pathogen_doi = category.doi %}
+                {% assign pathogen_doi_link = category.doi_link %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+  <title>Экспериментальные данные - {{ title }} - {{ pathogen_id }}</title>
+
+  <script>
+    function new_plot(pathogen_id, data_type) {
+      document.getElementById("new_plot").src="/experimental_data/pathogens/" + pathogen_id + "/" + pathogen_id + "_" + data_type + ".html";
+         }
+  </script>
+</head>
+<body>
+  {% include header.html %}
+    <h1>{{data_array}}</h1>
+  <div class="pathogen_type_container">
+    <div class="pathogen_type pathogen_type_name">
+        <div class="pathogen_name_1">Патоген</div>
+        <div class="pathogen_name_2">{{ title }}</div>
+        <div class="pathogen_name_3">Статья</div>
+        <div class="pathogen_name_4">{{ pathogen_article }}</div>
+        <div class="pathogen_name_5">Авторы</div>
+        <div class="pathogen_name_6">{{ pathogen_authors }}</div>
+        <div class="data_id_1">DOI</div>
+        <div class="data_id_2"><a href="{{ pathogen_doi_link }}" target="_blank" class="doi_link">{{ pathogen_doi }}</a></div>
+        <div class="data_id_1">ID</div>
+        <div class="data_id_2">{{ pathogen_id }}</div>
+    </div>
+    
+    <script>
+        showFirstTwoAuthors ('{{pathogen_authors}}')
+        function showFirstTwoAuthors (authors) {
+          let authorsArray = authors.split(',')
+          let finalArray = authorsArray.slice(0, 2).join(',');
+          console.log(authorsArray.slice(0, 2).length, authorsArray.length)
+          if (authorsArray.slice(0, 2).length < authorsArray.length) {
+            document.querySelector('.pathogen_name_6').innerHTML = finalArray + ' et al.'
+          } else {
+            document.querySelector('.pathogen_name_6').innerHTML = finalArray;
+          }
+        }
+      </script>   
+
+    <div class="pathogen_type"></div>
+
+    <div class="pathogen_type pathogen_description">
+      <div class="description_main_container">
+        <h4>Аннотация</h4>
+        <p>{{ annotation }}</p>
+        <h4 class="description">Описание данных</h4>
+        {{ content }}
+      </div>
+      
+
+
+        <div class="data_classes">Типы данных:
+            <ul>
+            {% for element in site.data.experimental_data_pathogens.[pathogen] %}
+                {% if element.[data_id] %}
+                    {% for category in element.[data_id] %} 
+                        {% if category.data %}
+                            {% for data_type in category.data %}
+                                {% for element in data_type %}
+                                    <li>{{ element[1] }}</li>
+                                    {% if forloop.last == false %}
+                                        <li>|</li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+      <div class="data_type">Классы данных:
+            <ul>
+            {% for element in site.data.experimental_data_pathogens.[pathogen] %}
+                {% if element.[data_id] %}
+                    {% for category in element.[data_id] %} 
+                        {% if category.data_types %}
+                            {% for data_type in category.data_types %}
+                                {% for element in data_type %}
+                                    <li>{{ element[1] }}</li>
+                                    {% if forloop.last == false %}
+                                        <li>|</li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            </ul>  
+
+      </div>
+    </div>
+    <div class="pathogen_type plot_container">
+        <div class="pathogen_type plot">
+            {% for element in site.data.experimental_data_pathogens.[pathogen] %}
+                {% if element.[data_id] %}
+                    {% for category in element.[data_id] %} 
+                        {% if category.data %}
+                            {% for data_type in category.data %}
+                                {% for element in data_type %}
+                                    {% assign start_plot_data = element[0] %}
+                                    {% break %}
+                                {% endfor %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            <iframe id="new_plot" src="/experimental_data/pathogens/{{pathogen_id}}/{{pathogen_id}}_{{start_plot_data}}.html" width="600" height="400" frameborder="0"></iframe>
+            <div class="pathogen_type data_selector">Выбрать данные
+                <ul>
+                {% for element in site.data.experimental_data_pathogens.[pathogen] %}
+                    {% if element.[data_id] %}
+                        {% for category in element.[data_id] %} 
+                            {% if category.data %}
+                                {% for data_type in category.data %}
+                                    {% for element in data_type %}
+                                        <li><button class="plotChangeButton" onclick="new_plot('{{pathogen_id}}', '{{element[0]}}')">{{ element[1] }}</button></li>
+                                    {% endfor %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="pathogen_type data_download">Загрузить данные
+                <button><a href="https://gitlab.sirius-web.org/immunology/immunology.pages.sirius-web.org/-/raw/master/experimental_data/pathogens/{{pathogen_id}}/{{pathogen_id}}_data_txt.zip?inline=false" >.txt</a></button>
+                <button><a href="https://gitlab.sirius-web.org/immunology/immunology.pages.sirius-web.org/-/raw/master/experimental_data/pathogens/{{pathogen_id}}/{{pathogen_id}}_data_csv.zip?inline=false">.csv</a></button>
+                <button><a href="https://gitlab.sirius-web.org/immunology/immunology.pages.sirius-web.org/-/raw/master/experimental_data/pathogens/{{pathogen_id}}/{{pathogen_id}}_data_xlsx.zip?inline=false">.xlsx</a></button>
+            </div>
+        </div>
+    </div>
+    
+  
+
+  </div>
+
+
+  {% include footer.html %}
+
+  <!-- Ionicons scripts -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="/scripts/JS/pathogenPage/changeModebar.js"></script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+main {
+    margin: 15px;
+    
+}
+
+form {
+    margin-top: 80px;
+    margin-bottom: 350px;
+}
+
+.card {
+    background-color: white;
+    max-width: 70%;
+    height: 300px;
+    margin: 0 auto;
+    display: none;
+    position: relative;
+}
+
+.form_group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .5rem;
+    gap: .25em;
+}
+
+.form_group:last-child {
+    margin: 0;
+}
+
+.form_group > label {
+    font-weight: bold;
+    font-size: .8em;
+    color: #333;
+}
+
+.step_title {
+    margin: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.card.active {
+    display: block;
+}
+
+.dropzone {
+    display: block;
+    position: relative;
+    border: 2px dashed gray;
+    border-radius: 3px;
+    height: 60%;
+}
+
+.dropzone.dropzone_active {
+    border: 2px solid #8ab3ca;
+    background: #dceffa;;
+}
+
+[hidden] { 
+    display: none !important; 
+}
+
+
+.progress_bar {
+    position: relative;
+    margin: auto; 
+    margin-bottom: 50px;
+    margin-top: 30px;
+    width: 60%;
+}
+
+.progress_line {
+    position: absolute;
+    background: #6ba0be;
+    height: 5px;
+    width: 0%;
+    top: 50%;
+    left: 0;
+}
+
+#progress_steps {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+#progress_steps::before {
+    content: "";
+    background-color: lightgray;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    z-index: -1;
+}
+
+#progress_steps .step {
+    border: 3px solid lightgray;
+    width: 50px;
+    height: 50px;
+    line-height: 25px;
+    text-align: center;
+    background-color: #fff;
+    color: rgb(44, 44, 44);
+    position: relative;
+    z-index: 1;
+}
+
+#progress_steps .step.active_step {
+    border-color: #6ba0be;
+    background-color: #6ba0be;
+    color: #fff;
+    transition: border-color 300ms, background-color 300ms, color 300ms;
+} 
+
+.progress_bar_icons {
+    font-size: 30px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.step:first-child::after {
+    width: 120px;
+    font-size: 0.9em;
+    font-weight: bold;
+    content: "Загрузка файлов";
+    position: absolute;
+    top: 62px;
+    left: 50%;
+    color: rgb(44, 44, 44);
+    margin-left: -59px;
+}
+
+.step:nth-child(2)::after {
+    width: 160px;
+    font-size: 0.9em;
+    font-weight: bold;
+    content: "Описание модели";
+    position: absolute;
+    top: 62px;
+    left: 50%;
+    color: rgb(44, 44, 44);
+    margin-left: -80px;
+}
+
+.step:nth-child(3)::after {
+    width: 160px;
+    font-size: 0.9em;
+    font-weight: bold;
+    content: "Публикация";
+    position: absolute;
+    top: 62px;
+    left: 50%;
+    color: rgb(44, 44, 44);
+    margin-left: -80px;
+}
+
+.step:nth-child(4)::after {
+    width: 160px;
+    font-size: 0.9em;
+    font-weight: bold;
+    content: "Завершение";
+    position: absolute;
+    top: 62px;
+    left: 50%;
+    color: rgb(44, 44, 44);
+    margin-left: -80px;
+}
+
+.step_title {
+    border: 1px solid;
+    padding: 1em 0;
+}
+
+#drop_button {
+    border: 1px solid;
+    background: transparent;
+    cursor: pointer;
+    display: block;
+    height: 30px;
+    width: 100px;
+    font-size: 0.9em;
+    float: right;
+}
+
+#upload_icon {
+    font-size: 50px;
+    color: rgb(44, 44, 44);
+}
+
+.icon_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    margin-top: -45px;
+}
+
+.icon_container::after {
+    content: "Перетащите файл сюда";
+    position: absolute;
+    top: 55px;
+}
+
+#file_input {
+    display: none;
+}
+
+#file-model {
+    display: block;
+    position: absolute;
+    top: 30px;
+}
+
+.dropzone p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 70%;
+    width: 100%;
+    font-size: 0.85em;
+}
+
+#input_button {
+    margin: 0 5px;
+    border: 1px solid rgb(94, 93, 93);
+    border-radius: 4px;
+    padding: 3px;
+    background: transparent;
+    cursor: pointer;
+}
+
+#input_contraints {
+    width: 80%;
+    float: left;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 8px;
+    font-size: 0.8em;
+    font-style: italic;
+    color: rgb(90, 90, 90);
+}
+
+#section_2_next_button, #section_2_prev_button {
+    border: 1px solid;
+    background: transparent;
+    cursor: pointer;
+    height: 30px;
+    width: 100px;
+    font-size: 0.9em;
+}
+
+.nav_buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 5px;
+}
+
+
+input, textarea {
+    padding: 8px 6px;
+    border: 1px solid grey;
+}
+
+label {
+    margin-top: 8px;
+    margin-bottom: 2px;
+    font-size: 1.1em;
+}
+
+#format_label {
+    margin-top: 2px;
+}
+
+#model_title::placeholder, #model_description::placeholder, #model_format::placeholder, #model_approach::placeholder {
+    font-style: italic;
+}
+
+#model_text_button {
+    border: 1px solid grey;
+    background: transparent;
+    cursor: pointer;
+    padding: 1px;
+    height: 25px;
+    width: 150px;
+    font-size: 0.8em;
+}
+
+#model_text_button_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#publication_button_container {
+    position: absolute;
+    top: 150px;
+}
+
+#publication_button {
+    border: 1px solid grey;
+    background: transparent;
+    cursor: pointer;
+    padding: 1px;
+    height: 25px;
+    width: 150px;
+    font-size: 0.8em;
+}
+
+#submit_button {
+    border: 1px solid;
+    cursor: pointer;
+    height: 30px;
+    width: 100px;
+    font-size: 0.9em;
+    background: #c9e7f9;
+}
